@@ -87,7 +87,7 @@ number Long
 0
 elems map
 String
-"int64"
+"uintptr"
 types_TypeName 7
 Object types_object
 parent types_Scope 6
@@ -96,14 +96,14 @@ pos Long
 pkg types_Package
 end
 name String
-"int64"
+"uintptr"
 typ types_Basic 8
 kind Long
-6
+12
 info Long
-2
+6
 name String
-"int64"
+"uintptr"
 end
 order_ Long
 0
@@ -114,8 +114,8 @@ scopePos_ Long
 end
 end
 String
-"false"
-types_Const 9
+"float64"
+types_TypeName 9
 Object types_object
 parent types_Scope 6
 pos Long
@@ -123,14 +123,14 @@ pos Long
 pkg types_Package
 end
 name String
-"false"
+"float64"
 typ types_Basic 10
 kind Long
-19
+14
 info Long
-65
+8
 name String
-"untyped bool"
+"float64"
 end
 order_ Long
 0
@@ -139,12 +139,10 @@ color_ Long
 scopePos_ Long
 0
 end
-Val Boolean
-false
 end
 String
-"append"
-types_Builtin 11
+"complex128"
+types_TypeName 11
 Object types_object
 parent types_Scope 6
 pos Long
@@ -152,8 +150,62 @@ pos Long
 pkg types_Package
 end
 name String
-"append"
+"complex128"
 typ types_Basic 12
+kind Long
+16
+info Long
+16
+name String
+"complex128"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"string"
+types_TypeName 13
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"string"
+typ types_Basic 14
+kind Long
+17
+info Long
+32
+name String
+"string"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"close"
+types_Builtin 15
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"close"
+typ types_Basic 16
 kind Long
 0
 info Long
@@ -169,55 +221,33 @@ scopePos_ Long
 0
 end
 id Long
-0
-end
-String
-"clear"
-types_Builtin 13
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"clear"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-2
-end
-String
-"close"
-types_Builtin 14
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"close"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
 3
 end
 String
+"complex"
+types_Builtin 17
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"complex"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+4
+end
+String
 "copy"
-types_Builtin 15
+types_Builtin 18
 Object types_object
 parent types_Scope 6
 pos Long
@@ -226,7 +256,7 @@ pkg types_Package
 end
 name String
 "copy"
-typ types_Basic 12
+typ types_Basic 16
 order_ Long
 0
 color_ Long
@@ -238,8 +268,84 @@ id Long
 5
 end
 String
+"uint16"
+types_TypeName 19
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"uint16"
+typ types_Basic 20
+kind Long
+9
+info Long
+6
+name String
+"uint16"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"real"
+types_Builtin 21
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"real"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+16
+end
+String
+"rune"
+types_TypeName 22
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"rune"
+typ types_Basic 23
+kind Long
+5
+info Long
+2
+name String
+"rune"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
 "imag"
-types_Builtin 16
+types_Builtin 24
 Object types_object
 parent types_Scope 6
 pos Long
@@ -248,7 +354,7 @@ pkg types_Package
 end
 name String
 "imag"
-typ types_Basic 12
+typ types_Basic 16
 order_ Long
 0
 color_ Long
@@ -260,8 +366,177 @@ id Long
 7
 end
 String
+"uint"
+types_TypeName 25
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"uint"
+typ types_Basic 26
+kind Long
+7
+info Long
+6
+name String
+"uint"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"uint32"
+types_TypeName 27
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"uint32"
+typ types_Basic 28
+kind Long
+10
+info Long
+6
+name String
+"uint32"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"complex64"
+types_TypeName 29
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"complex64"
+typ types_Basic 30
+kind Long
+15
+info Long
+16
+name String
+"complex64"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"cap"
+types_Builtin 31
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"cap"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+1
+end
+String
+"new"
+types_Builtin 32
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"new"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+12
+end
+String
+"panic"
+types_Builtin 33
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"panic"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+13
+end
+String
+"recover"
+types_Builtin 34
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"recover"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+17
+end
+String
 "int8"
-types_TypeName 17
+types_TypeName 35
 Object types_object
 parent types_Scope 6
 pos Long
@@ -270,7 +545,7 @@ pkg types_Package
 end
 name String
 "int8"
-typ types_Basic 18
+typ types_Basic 36
 kind Long
 3
 info Long
@@ -287,8 +562,8 @@ scopePos_ Long
 end
 end
 String
-"min"
-types_Builtin 19
+"float32"
+types_TypeName 37
 Object types_object
 parent types_Scope 6
 pos Long
@@ -296,36 +571,95 @@ pos Long
 pkg types_Package
 end
 name String
-"min"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-11
-end
-String
-"rune"
-types_TypeName 20
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"rune"
-typ types_Basic 21
+"float32"
+typ types_Basic 38
 kind Long
-5
+13
 info Long
-2
+8
 name String
-"rune"
+"float32"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"uint8"
+types_TypeName 39
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"uint8"
+typ types_Basic 40
+kind Long
+8
+info Long
+6
+name String
+"uint8"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"uint64"
+types_TypeName 41
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"uint64"
+typ types_Basic 42
+kind Long
+11
+info Long
+6
+name String
+"uint64"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"byte"
+types_TypeName 43
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"byte"
+typ types_Basic 44
+kind Long
+8
+info Long
+6
+name String
+"byte"
 end
 order_ Long
 0
@@ -337,7 +671,7 @@ end
 end
 String
 "any"
-types_TypeName 22
+types_TypeName 45
 Object types_object
 parent types_Scope 6
 pos Long
@@ -346,7 +680,7 @@ pkg types_Package
 end
 name String
 "any"
-typ types_Interface 23
+typ types_Interface 46
 check types_Checker
 end
 methods array
@@ -359,11 +693,11 @@ implicit Boolean
 false
 complete Boolean
 true
-tset types__TypeSet 24
+tset types__TypeSet 47
 methods array
 end
 terms array
-types_term 25
+types_term 48
 tilde Boolean
 false
 typ nil
@@ -382,101 +716,8 @@ scopePos_ Long
 end
 end
 String
-"len"
-types_Builtin 26
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"len"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-8
-end
-String
-"max"
-types_Builtin 27
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"max"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-10
-end
-String
-"print"
-types_Builtin 28
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"print"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-14
-end
-String
-"int"
-types_TypeName 29
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"int"
-typ types_Basic 30
-kind Long
-2
-info Long
-2
-name String
-"int"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
 "iota"
-types_Const 31
+types_Const 49
 Object types_object
 parent types_Scope 6
 pos Long
@@ -485,7 +726,7 @@ pkg types_Package
 end
 name String
 "iota"
-typ types_Basic 32
+typ types_Basic 50
 kind Long
 20
 info Long
@@ -504,8 +745,8 @@ Val Long
 0
 end
 String
-"complex"
-types_Builtin 33
+"append"
+types_Builtin 51
 Object types_object
 parent types_Scope 6
 pos Long
@@ -513,8 +754,8 @@ pos Long
 pkg types_Package
 end
 name String
-"complex"
-typ types_Basic 12
+"append"
+typ types_Basic 16
 order_ Long
 0
 color_ Long
@@ -523,20 +764,71 @@ scopePos_ Long
 0
 end
 id Long
+0
+end
+String
+"make"
+types_Builtin 52
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"make"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+9
+end
+String
+"print"
+types_Builtin 53
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"print"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+14
+end
+String
+"int16"
+types_TypeName 54
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"int16"
+typ types_Basic 55
+kind Long
 4
-end
-String
-"recover"
-types_Builtin 34
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
+info Long
+2
 name String
-"recover"
-typ types_Basic 12
+"int16"
+end
 order_ Long
 0
 color_ Long
@@ -544,12 +836,10 @@ color_ Long
 scopePos_ Long
 0
 end
-id Long
-17
 end
 String
 "comparable"
-types_TypeName 35
+types_TypeName 56
 Object types_object
 parent types_Scope 6
 pos Long
@@ -558,11 +848,11 @@ pkg types_Package
 end
 name String
 "comparable"
-typ types_Named 36
+typ types_Named 57
 check types_Checker
 end
-obj types_TypeName 35
-fromRHS types_Interface 37
+obj types_TypeName 56
+fromRHS types_Interface 58
 check types_Checker
 end
 methods array
@@ -575,11 +865,11 @@ implicit Boolean
 false
 complete Boolean
 true
-tset types__TypeSet 38
+tset types__TypeSet 59
 methods array
 end
 terms array
-types_term 25
+types_term 48
 end
 comparable Boolean
 true
@@ -595,7 +885,7 @@ sema Long
 end
 state_ Long
 2
-underlying types_Interface 37
+underlying types_Interface 58
 tparams types_TypeParamList
 end
 methods array
@@ -610,8 +900,8 @@ scopePos_ Long
 end
 end
 String
-"panic"
-types_Builtin 39
+"delete"
+types_Builtin 60
 Object types_object
 parent types_Scope 6
 pos Long
@@ -619,8 +909,8 @@ pos Long
 pkg types_Package
 end
 name String
-"panic"
-typ types_Basic 12
+"delete"
+typ types_Basic 16
 order_ Long
 0
 color_ Long
@@ -629,254 +919,11 @@ scopePos_ Long
 0
 end
 id Long
-13
-end
-String
-"uint8"
-types_TypeName 40
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"uint8"
-typ types_Basic 41
-kind Long
-8
-info Long
 6
-name String
-"uint8"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"uint32"
-types_TypeName 42
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"uint32"
-typ types_Basic 43
-kind Long
-10
-info Long
-6
-name String
-"uint32"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"uint64"
-types_TypeName 44
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"uint64"
-typ types_Basic 45
-kind Long
-11
-info Long
-6
-name String
-"uint64"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"uintptr"
-types_TypeName 46
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"uintptr"
-typ types_Basic 47
-kind Long
-12
-info Long
-6
-name String
-"uintptr"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"float64"
-types_TypeName 48
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"float64"
-typ types_Basic 49
-kind Long
-14
-info Long
-8
-name String
-"float64"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"complex128"
-types_TypeName 50
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"complex128"
-typ types_Basic 51
-kind Long
-16
-info Long
-16
-name String
-"complex128"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"int16"
-types_TypeName 52
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"int16"
-typ types_Basic 53
-kind Long
-4
-info Long
-2
-name String
-"int16"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"string"
-types_TypeName 54
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"string"
-typ types_Basic 55
-kind Long
-17
-info Long
-32
-name String
-"string"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"byte"
-types_TypeName 56
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"byte"
-typ types_Basic 57
-kind Long
-8
-info Long
-6
-name String
-"byte"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
 end
 String
 "error"
-types_TypeName 58
+types_TypeName 61
 Object types_object
 parent types_Scope 6
 pos Long
@@ -885,15 +932,15 @@ pkg types_Package
 end
 name String
 "error"
-typ types_Named 59
+typ types_Named 62
 check types_Checker
 end
-obj types_TypeName 58
-fromRHS types_Interface 60
+obj types_TypeName 61
+fromRHS types_Interface 63
 check types_Checker
 end
 methods array
-types_Func 61
+types_Func 64
 Object types_object
 parent types_Scope
 end
@@ -903,14 +950,14 @@ pkg types_Package
 end
 name String
 "Error"
-typ types_Signature 62
+typ types_Signature 65
 rparams types_TypeParamList
 end
 tparams types_TypeParamList
 end
 scope types_Scope
 end
-recv types_Var 63
+recv types_Var 66
 Object types_object
 parent types_Scope
 end
@@ -920,7 +967,7 @@ pkg types_Package
 end
 name String
 ""
-typ types_Named 59
+typ types_Named 62
 order_ Long
 0
 color_ Long
@@ -939,9 +986,9 @@ end
 end
 params types_Tuple
 end
-results types_Tuple 64
+results types_Tuple 67
 vars array
-types_Var 65
+types_Var 68
 Object types_object
 parent types_Scope
 end
@@ -951,7 +998,7 @@ pkg types_Package
 end
 name String
 ""
-typ types_Basic 55
+typ types_Basic 14
 order_ Long
 0
 color_ Long
@@ -994,12 +1041,12 @@ implicit Boolean
 false
 complete Boolean
 true
-tset types__TypeSet 66
+tset types__TypeSet 69
 methods array
-types_Func 61
+types_Func 64
 end
 terms array
-types_term 25
+types_term 48
 end
 comparable Boolean
 false
@@ -1015,7 +1062,7 @@ sema Long
 end
 state_ Long
 2
-underlying types_Interface 60
+underlying types_Interface 63
 tparams types_TypeParamList
 end
 methods array
@@ -1030,73 +1077,7 @@ scopePos_ Long
 end
 end
 String
-"true"
-types_Const 67
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"true"
-typ types_Basic 10
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-Val Boolean
-true
-end
-String
-"make"
-types_Builtin 68
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"make"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-9
-end
-String
-"real"
-types_Builtin 69
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"real"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-16
-end
-String
-"int32"
+"int64"
 types_TypeName 70
 Object types_object
 parent types_Scope 6
@@ -1105,8 +1086,84 @@ pos Long
 pkg types_Package
 end
 name String
-"int32"
+"int64"
 typ types_Basic 71
+kind Long
+6
+info Long
+2
+name String
+"int64"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"max"
+types_Builtin 72
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"max"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+10
+end
+String
+"bool"
+types_TypeName 73
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"bool"
+typ types_Basic 74
+kind Long
+1
+info Long
+1
+name String
+"bool"
+end
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+end
+String
+"int32"
+types_TypeName 75
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"int32"
+typ types_Basic 76
 kind Long
 5
 info Long
@@ -1123,8 +1180,8 @@ scopePos_ Long
 end
 end
 String
-"cap"
-types_Builtin 72
+"true"
+types_Const 77
 Object types_object
 parent types_Scope 6
 pos Long
@@ -1132,107 +1189,14 @@ pos Long
 pkg types_Package
 end
 name String
-"cap"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-1
-end
-String
-"new"
-types_Builtin 73
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"new"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-12
-end
-String
-"println"
-types_Builtin 74
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"println"
-typ types_Basic 12
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-id Long
-15
-end
-String
-"float32"
-types_TypeName 75
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"float32"
-typ types_Basic 76
-kind Long
-13
-info Long
-8
-name String
-"float32"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
-end
-String
-"uint"
-types_TypeName 77
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"uint"
+"true"
 typ types_Basic 78
 kind Long
-7
+19
 info Long
-6
+65
 name String
-"uint"
+"untyped bool"
 end
 order_ Long
 0
@@ -1241,10 +1205,12 @@ color_ Long
 scopePos_ Long
 0
 end
+Val Boolean
+true
 end
 String
-"uint16"
-types_TypeName 79
+"false"
+types_Const 79
 Object types_object
 parent types_Scope 6
 pos Long
@@ -1252,15 +1218,8 @@ pos Long
 pkg types_Package
 end
 name String
-"uint16"
-typ types_Basic 80
-kind Long
-9
-info Long
-6
-name String
-"uint16"
-end
+"false"
+typ types_Basic 78
 order_ Long
 0
 color_ Long
@@ -1268,37 +1227,12 @@ color_ Long
 scopePos_ Long
 0
 end
-end
-String
-"complex64"
-types_TypeName 81
-Object types_object
-parent types_Scope 6
-pos Long
-0
-pkg types_Package
-end
-name String
-"complex64"
-typ types_Basic 82
-kind Long
-15
-info Long
-16
-name String
-"complex64"
-end
-order_ Long
-0
-color_ Long
-1
-scopePos_ Long
-0
-end
+Val Boolean
+false
 end
 String
 "nil"
-types_Nil 83
+types_Nil 80
 Object types_object
 parent types_Scope 6
 pos Long
@@ -1307,7 +1241,7 @@ pkg types_Package
 end
 name String
 "nil"
-typ types_Basic 84
+typ types_Basic 81
 kind Long
 25
 info Long
@@ -1324,8 +1258,8 @@ scopePos_ Long
 end
 end
 String
-"delete"
-types_Builtin 85
+"clear"
+types_Builtin 82
 Object types_object
 parent types_Scope 6
 pos Long
@@ -1333,8 +1267,8 @@ pos Long
 pkg types_Package
 end
 name String
-"delete"
-typ types_Basic 12
+"clear"
+typ types_Basic 16
 order_ Long
 0
 color_ Long
@@ -1343,11 +1277,11 @@ scopePos_ Long
 0
 end
 id Long
-6
+2
 end
 String
-"bool"
-types_TypeName 86
+"len"
+types_Builtin 83
 Object types_object
 parent types_Scope 6
 pos Long
@@ -1355,14 +1289,58 @@ pos Long
 pkg types_Package
 end
 name String
-"bool"
-typ types_Basic 87
-kind Long
+"len"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
 1
-info Long
-1
+scopePos_ Long
+0
+end
+id Long
+8
+end
+String
+"min"
+types_Builtin 84
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
 name String
-"bool"
+"min"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+11
+end
+String
+"int"
+types_TypeName 85
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"int"
+typ types_Basic 86
+kind Long
+2
+info Long
+2
+name String
+"int"
 end
 order_ Long
 0
@@ -1371,6 +1349,28 @@ color_ Long
 scopePos_ Long
 0
 end
+end
+String
+"println"
+types_Builtin 87
+Object types_object
+parent types_Scope 6
+pos Long
+0
+pkg types_Package
+end
+name String
+"println"
+typ types_Basic 16
+order_ Long
+0
+color_ Long
+1
+scopePos_ Long
+0
+end
+id Long
+15
 end
 end
 pos Long
@@ -1437,7 +1437,7 @@ pos Long
 pkg types_Package 4
 name String
 "a"
-typ types_Basic 30
+typ types_Basic 86
 order_ Long
 0
 color_ Long
@@ -1464,7 +1464,7 @@ pos Long
 pkg types_Package 4
 name String
 "b"
-typ types_Basic 30
+typ types_Basic 86
 order_ Long
 0
 color_ Long
@@ -1527,8 +1527,45 @@ number Long
 0
 elems map
 String
-"Max2"
+"main"
 types_Func 95
+Object types_object
+parent types_Scope 5
+pos Long
+85
+pkg types_Package 4
+name String
+"main"
+typ types_Signature 96
+rparams types_TypeParamList
+end
+tparams types_TypeParamList
+end
+scope types_Scope 94
+recv types_Var
+end
+params types_Tuple
+end
+results types_Tuple
+end
+variadic Boolean
+false
+end
+order_ Long
+2
+color_ Long
+1
+scopePos_ Long
+0
+end
+hasPtrRecv_ Boolean
+false
+origin types_Func
+end
+end
+String
+"Max2"
+types_Func 97
 Object types_object
 parent types_Scope 5
 pos Long
@@ -1536,7 +1573,7 @@ pos Long
 pkg types_Package 4
 name String
 "Max2"
-typ types_Signature 96
+typ types_Signature 98
 rparams types_TypeParamList
 end
 tparams types_TypeParamList
@@ -1544,15 +1581,15 @@ end
 scope types_Scope 89
 recv types_Var
 end
-params types_Tuple 97
+params types_Tuple 99
 vars array
 types_Var 92
 types_Var 93
 end
 end
-results types_Tuple 98
+results types_Tuple 100
 vars array
-types_Var 99
+types_Var 101
 Object types_object
 parent types_Scope
 end
@@ -1561,7 +1598,7 @@ pos Long
 pkg types_Package 4
 name String
 ""
-typ types_Basic 30
+typ types_Basic 86
 order_ Long
 0
 color_ Long
@@ -1585,43 +1622,6 @@ false
 end
 order_ Long
 1
-color_ Long
-1
-scopePos_ Long
-0
-end
-hasPtrRecv_ Boolean
-false
-origin types_Func
-end
-end
-String
-"main"
-types_Func 100
-Object types_object
-parent types_Scope 5
-pos Long
-85
-pkg types_Package 4
-name String
-"main"
-typ types_Signature 101
-rparams types_TypeParamList
-end
-tparams types_TypeParamList
-end
-scope types_Scope 94
-recv types_Var
-end
-params types_Tuple
-end
-results types_Tuple
-end
-variadic Boolean
-false
-end
-order_ Long
-2
 color_ Long
 1
 scopePos_ Long
@@ -1659,10 +1659,10 @@ String
 ssa_Function 102
 name String
 "main"
-Object types_Func 100
+Object types_Func 95
 method ssa_selection
 end
-Signature types_Signature 101
+Signature types_Signature 96
 pos Long
 85
 Synthetic String
@@ -1925,83 +1925,83 @@ end
 end
 info types_Info 138
 Types map
-ast_BinaryExpr 128
+ast_BasicLit 136
 types_TypeAndValue
 mode Long
-7
-Type types_Basic 10
-Value nil
+4
+Type types_Basic 86
+Value Long
+2
 end
-ast_Ident 122
+ast_BasicLit 137
 types_TypeAndValue
 mode Long
+4
+Type types_Basic 86
+Value Long
 3
-Type types_Basic 30
-Value nil
 end
-ast_Ident 125
+ast_Ident 129
 types_TypeAndValue
 mode Long
-3
-Type types_Basic 30
+5
+Type types_Basic 86
 Value nil
 end
 ast_Ident 130
 types_TypeAndValue
 mode Long
 5
-Type types_Basic 30
+Type types_Basic 86
 Value nil
 end
 ast_Ident 133
 types_TypeAndValue
 mode Long
 5
-Type types_Basic 30
-Value nil
-end
-ast_Ident 111
-types_TypeAndValue
-mode Long
-7
-Type types_Signature 96
-Value nil
-end
-ast_BasicLit 136
-types_TypeAndValue
-mode Long
-4
-Type types_Basic 30
-Value Long
-2
-end
-ast_Ident 129
-types_TypeAndValue
-mode Long
-5
-Type types_Basic 30
+Type types_Basic 86
 Value nil
 end
 ast_Ident 135
 types_TypeAndValue
 mode Long
 5
-Type types_Basic 30
+Type types_Basic 86
 Value nil
 end
-ast_BasicLit 137
+ast_BinaryExpr 128
 types_TypeAndValue
 mode Long
-4
-Type types_Basic 30
-Value Long
+7
+Type types_Basic 78
+Value nil
+end
+ast_Ident 122
+types_TypeAndValue
+mode Long
 3
+Type types_Basic 86
+Value nil
+end
+ast_Ident 125
+types_TypeAndValue
+mode Long
+3
+Type types_Basic 86
+Value nil
+end
+ast_Ident 111
+types_TypeAndValue
+mode Long
+7
+Type types_Signature 98
+Value nil
 end
 ast_CallExpr 110
 types_TypeAndValue
 mode Long
 7
-Type types_Basic 30
+Type types_Basic 86
 Value nil
 end
 end
@@ -2009,9 +2009,9 @@ Instances map
 end
 Defs map
 ast_Ident 114
-types_Func 95
+types_Func 97
 ast_Ident 104
-types_Func 100
+types_Func 95
 ast_Ident 118
 types_Var 92
 ast_Ident 120
@@ -2036,27 +2036,19 @@ types_Var 92
 ast_Ident 135
 types_Var 93
 ast_Ident 111
-types_Func 95
+types_Func 97
 ast_Ident 122
-types_TypeName 29
+types_TypeName 85
 ast_Ident 125
-types_TypeName 29
+types_TypeName 85
 end
 Implicits map
 ast_Field 124
-types_Var 99
+types_Var 101
 end
 Selections map
 end
 Scopes map
-ast_FuncType 115
-types_Scope 89
-ast_FuncType 106
-types_Scope 94
-ast_IfStmt 127
-types_Scope 90
-ast_BlockStmt 131
-types_Scope 91
 ast_File 140
 Doc ast_CommentGroup
 end
@@ -2076,11 +2068,11 @@ Outer ast_Scope
 end
 Objects map
 String
-"Max2"
-ast_Object 112
-String
 "main"
 ast_Object 105
+String
+"Max2"
+ast_Object 112
 end
 end
 Imports array
@@ -2095,6 +2087,14 @@ GoVersion String
 ""
 end
 types_Scope 88
+ast_FuncType 115
+types_Scope 89
+ast_FuncType 106
+types_Scope 94
+ast_IfStmt 127
+types_Scope 90
+ast_BlockStmt 131
+types_Scope 91
 end
 InitOrder array
 end
@@ -2126,7 +2126,7 @@ block ssa_BasicBlock 142
 end
 num Long
 0
-typ types_Basic 30
+typ types_Basic 86
 pos Long
 0
 referrers array
@@ -2136,10 +2136,10 @@ Call ssa_CallCommon
 Value ssa_Function 144
 name String
 "Max2"
-Object types_Func 95
+Object types_Func 97
 method ssa_selection
 end
-Signature types_Signature 96
+Signature types_Signature 98
 pos Long
 20
 Synthetic String
@@ -2157,7 +2157,7 @@ ssa_Parameter 145
 name String
 "a"
 Object types_Var 92
-typ types_Basic 30
+typ types_Basic 86
 parent ssa_Function 144
 referrers array
 ssa_BinOp 146
@@ -2240,7 +2240,7 @@ ssa_Parameter 153
 name String
 "b"
 Object types_Var 93
-typ types_Basic 30
+typ types_Basic 86
 parent ssa_Function 144
 referrers array
 ssa_BinOp 146
@@ -2302,7 +2302,7 @@ end
 end
 num Long
 0
-typ types_Basic 87
+typ types_Basic 74
 pos Long
 47
 referrers array
@@ -2361,12 +2361,12 @@ Method types_Func
 end
 Args array
 ssa_Const 154
-typ types_Basic 30
+typ types_Basic 86
 Value Long
 2
 end
 ssa_Const 155
-typ types_Basic 30
+typ types_Basic 86
 Value Long
 3
 end
@@ -2447,7 +2447,7 @@ name String
 "init$guard"
 Object nil
 typ types_Pointer 158
-base types_Basic 87
+base types_Basic 74
 end
 pos Long
 0
@@ -2512,7 +2512,7 @@ block ssa_BasicBlock 161
 end
 num Long
 0
-typ types_Basic 87
+typ types_Basic 74
 pos Long
 0
 referrers array
@@ -2567,7 +2567,7 @@ block ssa_BasicBlock 166
 end
 Addr ssa_Global 157
 Val ssa_Const 168
-typ types_Basic 87
+typ types_Basic 74
 Value Boolean
 true
 end
@@ -2689,9 +2689,9 @@ ssa_Function 144
 end
 objects map
 types_Func 95
-ssa_Function 144
-types_Func 100
 ssa_Function 102
+types_Func 97
+ssa_Function 144
 end
 init ssa_Function 159
 debug Boolean
