@@ -169,3 +169,9 @@ publishing {
         }
     }
 }
+
+tasks.test {
+    testLogging {
+        showStandardStreams = true
+    }
+}
