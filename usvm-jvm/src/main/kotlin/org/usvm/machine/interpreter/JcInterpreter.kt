@@ -100,7 +100,7 @@ class JcInterpreter(
         val logger = object : KLogging() {}.logger
     }
 
-    fun getInitialState(method: JcMethod, targets: List<JcTarget> = emptyList()): JcState {
+    fun getInitialState(method: JcMethod, targets: List<JcTarget> = emptyList()): JcState? {
         val state = JcState(ctx, method, targets = UTargetsSet.from(targets))
         val typedMethod = with(applicationGraph) { method.typed }
             ?: error("No typed method for entrypoint: $method")
@@ -140,7 +140,8 @@ class JcInterpreter(
 
         val solver = ctx.solver<JcType>()
 
-        val model = (solver.check(state.pathConstraints) as USatResult).model
+        val model = (solver.check(state.pathConstraints) as? USatResult)?.model
+            ?: return null
         state.models = listOf(model)
 
         val entrypointInst = JcMethodEntrypointInst(method, entrypointArguments)

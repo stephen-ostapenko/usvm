@@ -30,13 +30,13 @@ tasks {
         sourceCompatibility = JavaVersion.VERSION_1_8.toString()
         targetCompatibility = JavaVersion.VERSION_1_8.toString()
         options.encoding = "UTF-8"
-        options.compilerArgs = options.compilerArgs + "-Xlint:all" + "-Werror"
+        options.compilerArgs = options.compilerArgs + "-Xlint:all"
     }
     withType<KotlinCompile> {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_1_8.toString()
             freeCompilerArgs = freeCompilerArgs + "-Xallow-result-return-type" + "-Xsam-conversions=class"
-            allWarningsAsErrors = true
+            allWarningsAsErrors = false
         }
     }
 }

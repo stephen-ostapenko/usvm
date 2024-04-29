@@ -72,8 +72,8 @@ class JcMachine(
         ) {
         logger.debug("{}.analyze({})", this, methods)
         val initialStates = mutableMapOf<JcMethod, JcState>()
-        methods.forEach {
-            initialStates[it] = interpreter.getInitialState(it, targets)
+        for (it in methods) {
+            initialStates[it] = interpreter.getInitialState(it, targets) ?: continue
         }
 
         val methodsToTrackCoverage =
