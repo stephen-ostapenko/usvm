@@ -1,4 +1,5 @@
 import kotlinx.coroutines.runBlocking
+import org.jacodb.api.JcMethod
 import org.jacodb.api.ext.findClass
 import org.jacodb.impl.features.InMemoryHierarchy
 import org.jacodb.impl.features.Usages
@@ -11,6 +12,7 @@ import org.usvm.PathSelectorFairnessStrategy
 import org.usvm.SolverType
 import org.usvm.UMachineOptions
 import org.usvm.machine.JcMachine
+import org.usvm.machine.MethodNameStorage
 import org.usvm.machine.state.JcState
 import org.usvm.statistics.collectors.StatesCollector
 import org.usvm.types.ClassScorer
@@ -22,6 +24,10 @@ import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
 val pathToJar = "../classes"
+
+fun getTestNumber(method: JcMethod): String {
+    return method.enclosingClass.toString().split('.').last().split('$').first().drop(13)
+}
 
 class Bench {
     @Test
@@ -50,25 +56,28 @@ class Bench {
             .flatMap { it.declaredMethods }
             .filter { it.instList.size > 0 }
             .shuffled(Random(24))
-            .take(100)
             .toList()
 
-        val options = UMachineOptions(
-            pathSelectionStrategies = listOf(PathSelectionStrategy.FORK_DEPTH_RANDOM),
-            pathSelectorFairnessStrategy = PathSelectorFairnessStrategy.CONSTANT_TIME,
-            solverType = SolverType.YICES,
-            solverTimeout = 1.seconds,
-            timeout = 1.minutes
-        )
+        for (method in allFunctions) {
+            MethodNameStorage.methodName.set(getTestNumber(method))
 
-        JcMachine(cp, options).use { machine ->
-            machine.analyze(allFunctions, object : StatesCollector<JcState> {
-                override var count: Int = 0
+            val options = UMachineOptions(
+                pathSelectionStrategies = listOf(PathSelectionStrategy.FORK_DEPTH_RANDOM),
+                pathSelectorFairnessStrategy = PathSelectorFairnessStrategy.CONSTANT_TIME,
+                solverType = SolverType.YICES,
+                solverTimeout = 1.seconds,
+                timeout = 1.minutes
+            )
 
-                override fun addState(state: JcState) {
-                    count++
-                }
-            })
+            JcMachine(cp, options).use { machine ->
+                machine.analyze(listOf(method), object : StatesCollector<JcState> {
+                    override var count: Int = 0
+
+                    override fun addState(state: JcState) {
+                        count++
+                    }
+                })
+            }
         }
     }
 }

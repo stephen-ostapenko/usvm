@@ -174,4 +174,6 @@ tasks.test {
     testLogging {
         showStandardStreams = true
     }
+
+    maxHeapSize = "256G"
 }

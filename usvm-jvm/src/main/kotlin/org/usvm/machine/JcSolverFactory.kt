@@ -30,8 +30,8 @@ private object SameProcessSolverFactory : SolverFactory {
         solverType: SolverType
     ): KSolver<out KSolverConfiguration> = when (solverType) {
         // Yices with Fp support via SymFpu
-        SolverType.YICES -> ExpressionCollector(KSymFpuSolver(KYicesSolver(ctx), ctx))
-        SolverType.Z3 -> ExpressionCollector(KZ3Solver(ctx))
+        SolverType.YICES -> ExpressionCollector(ctx, KSymFpuSolver(KYicesSolver(ctx), ctx))
+        SolverType.Z3 -> ExpressionCollector(ctx, KZ3Solver(ctx))
     }
 
     override fun close() {

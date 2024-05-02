@@ -24,10 +24,93 @@ import io.ksmt.sort.KBoolSort
 import io.ksmt.sort.KBvSort
 import io.ksmt.sort.KSort
 import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStream
 import java.nio.ByteBuffer
 import kotlin.time.Duration
 
+fun serialize(ctx: KContext, expressions: List<KExpr<KBoolSort>>, outputStream: OutputStream) {
+    val serializationCtx = AstSerializationCtx().apply { initCtx(ctx) }
+    val marshaller = AstSerializationCtx.marshaller(serializationCtx)
+    val emptyRdSerializationCtx = SerializationCtx(Serializers())
 
+    val buffer = UnsafeBuffer(ByteArray(100_000)) // ???
+
+    expressions.forEach { expr ->
+        marshaller.write(emptyRdSerializationCtx, buffer, expr)
+    }
+
+    outputStream.write(buffer.getArray())
+    outputStream.flush()
+}
+
+object MethodNameStorage {
+    val methodName = ThreadLocal<String>()
+}
+
+class ExpressionCollector<C : KSolverConfiguration>(
+    private val ctx: KContext, private val baseSolver: KSolver<C>
+) : KSolver<C> by baseSolver {
+
+    companion object {
+        val counter = ThreadLocal<Long>()
+    }
+
+    init {
+        File("formulas").mkdirs()
+        File("formulas/${MethodNameStorage.methodName.get()}").mkdirs()
+
+        counter.set(0)
+    }
+
+    private fun getNewFileCounter(): Long {
+        val result = counter.get()
+        counter.set(result + 1)
+        return result
+    }
+
+    private fun getNewFileName(suffix: String): String {
+        return "formulas/${MethodNameStorage.methodName.get()}/f-${getNewFileCounter()}-$suffix"
+    }
+
+    val stack = mutableListOf<MutableList<KExpr<KBoolSort>>>(mutableListOf())
+
+    override fun assert(expr: KExpr<KBoolSort>) {
+        stack.last().add(expr)
+        baseSolver.assert(expr)
+    }
+
+    override fun assertAndTrack(expr: KExpr<KBoolSort>) {
+        stack.last().add(expr)
+        baseSolver.assertAndTrack(expr)
+    }
+
+    override fun push() {
+        stack.add(mutableListOf())
+        baseSolver.push()
+    }
+
+    override fun pop(n: UInt) {
+        repeat(n.toInt()) {
+            stack.removeLast()
+        }
+        baseSolver.pop(n)
+    }
+
+    override fun check(timeout: Duration): KSolverStatus {
+        val result = baseSolver.check(timeout)
+        serialize(ctx, stack.flatten(), FileOutputStream(getNewFileName(result.toString().lowercase())))
+        return result
+    }
+
+    override fun checkWithAssumptions(assumptions: List<KExpr<KBoolSort>>, timeout: Duration): KSolverStatus {
+        val result = baseSolver.checkWithAssumptions(assumptions, timeout)
+        serialize(ctx, stack.flatten() + assumptions, FileOutputStream(getNewFileName(result.toString().lowercase())))
+        return result
+    }
+}
+
+/*
 class ExpressionCollector<Config: KSolverConfiguration>(
     private val solver: KSolver<Config>
 ) : KSolver<Config> by solver {
@@ -119,3 +202,4 @@ class ExpressionCollector<Config: KSolverConfiguration>(
         File(filePath).writeBytes(wrapped.array())
     }
 }
+ */
