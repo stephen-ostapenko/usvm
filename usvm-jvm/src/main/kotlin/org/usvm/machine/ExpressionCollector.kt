@@ -4,44 +4,48 @@ import com.jetbrains.rd.framework.SerializationCtx
 import com.jetbrains.rd.framework.Serializers
 import com.jetbrains.rd.framework.UnsafeBuffer
 import io.ksmt.KContext
-import io.ksmt.expr.KApp
-import io.ksmt.expr.KBvAndExpr
-import io.ksmt.expr.KBvLogicalShiftRightExpr
-import io.ksmt.expr.KBvNAndExpr
-import io.ksmt.expr.KBvNorExpr
-import io.ksmt.expr.KBvOrExpr
-import io.ksmt.expr.KBvXNorExpr
-import io.ksmt.expr.KBvXorExpr
-import io.ksmt.expr.KBvZeroExtensionExpr
 import io.ksmt.expr.KExpr
-import io.ksmt.expr.KInterpretedValue
-import io.ksmt.expr.transformer.KNonRecursiveTransformer
 import io.ksmt.runner.serializer.AstSerializationCtx
 import io.ksmt.solver.KSolver
 import io.ksmt.solver.KSolverConfiguration
 import io.ksmt.solver.KSolverStatus
 import io.ksmt.sort.KBoolSort
-import io.ksmt.sort.KBvSort
-import io.ksmt.sort.KSort
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-import java.nio.ByteBuffer
 import kotlin.time.Duration
 
-fun serialize(ctx: KContext, expressions: List<KExpr<KBoolSort>>, outputStream: OutputStream) {
+fun serialize(ctx: KContext, expressions: List<KExpr<KBoolSort>>, outputStream: OutputStream): Boolean {
     val serializationCtx = AstSerializationCtx().apply { initCtx(ctx) }
     val marshaller = AstSerializationCtx.marshaller(serializationCtx)
     val emptyRdSerializationCtx = SerializationCtx(Serializers())
 
-    val buffer = UnsafeBuffer(ByteArray(100_000)) // ???
+    val buffer = UnsafeBuffer(ByteArray(100_000))
 
     expressions.forEach { expr ->
         marshaller.write(emptyRdSerializationCtx, buffer, expr)
     }
 
-    outputStream.write(buffer.getArray())
+    if (buffer.position == 0) {
+        return false
+    }
+
+    outputStream.write(buffer.getArray().copyOfRange(0, buffer.position))
     outputStream.flush()
+
+    return true
+}
+
+fun dumpFormula(fileName: String, ctx: KContext, expressions: List<KExpr<KBoolSort>>) {
+    val byteStream = ByteArrayOutputStream()
+    if (!serialize(ctx, expressions, byteStream)) {
+        return
+    }
+
+    val fileStream = FileOutputStream(fileName)
+    fileStream.write(byteStream.toByteArray())
+    fileStream.flush()
 }
 
 object MethodNameStorage {
@@ -99,13 +103,13 @@ class ExpressionCollector<C : KSolverConfiguration>(
 
     override fun check(timeout: Duration): KSolverStatus {
         val result = baseSolver.check(timeout)
-        serialize(ctx, stack.flatten(), FileOutputStream(getNewFileName(result.toString().lowercase())))
+        dumpFormula(getNewFileName(result.toString().lowercase()), ctx, stack.flatten())
         return result
     }
 
     override fun checkWithAssumptions(assumptions: List<KExpr<KBoolSort>>, timeout: Duration): KSolverStatus {
         val result = baseSolver.checkWithAssumptions(assumptions, timeout)
-        serialize(ctx, stack.flatten() + assumptions, FileOutputStream(getNewFileName(result.toString().lowercase())))
+        dumpFormula(getNewFileName(result.toString().lowercase()), ctx, stack.flatten() + assumptions)
         return result
     }
 }
