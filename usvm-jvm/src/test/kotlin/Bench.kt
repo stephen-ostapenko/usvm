@@ -1,5 +1,4 @@
 import kotlinx.coroutines.runBlocking
-import org.jacodb.api.JcMethod
 import org.jacodb.api.ext.findClass
 import org.jacodb.impl.features.InMemoryHierarchy
 import org.jacodb.impl.features.Usages
@@ -24,10 +23,6 @@ import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
 val pathToJar = "../classes"
-
-fun getTestNumber(method: JcMethod): String {
-    return method.enclosingClass.toString().split('.').last().split('$').first().drop(13)
-}
 
 class Bench {
     @Test
@@ -59,7 +54,7 @@ class Bench {
             .toList()
 
         for (method in allFunctions) {
-            MethodNameStorage.methodName.set(getTestNumber(method))
+            MethodNameStorage.methodName.set(method.enclosingClass.toString())
 
             val options = UMachineOptions(
                 pathSelectionStrategies = listOf(PathSelectionStrategy.FORK_DEPTH_RANDOM),
