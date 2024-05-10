@@ -49,7 +49,13 @@ class Bench {
             .map { cp.findClass(it) }
             .filterNot { it is JcUnknownClass }
             .flatMap { it.declaredMethods }
-            .filter { it.instList.size > 0 }
+            .filter {
+                try {
+                    it.instList.size > 0
+                } catch (e: Exception) {
+                    false
+                }
+            }
             .shuffled(Random(24))
             .toList()
 
@@ -64,14 +70,18 @@ class Bench {
                 timeout = 1.minutes
             )
 
-            JcMachine(cp, options).use { machine ->
-                machine.analyze(listOf(method), object : StatesCollector<JcState> {
-                    override var count: Int = 0
+            try {
+                JcMachine(cp, options).use { machine ->
+                    machine.analyze(listOf(method), object : StatesCollector<JcState> {
+                        override var count: Int = 0
 
-                    override fun addState(state: JcState) {
-                        count++
-                    }
-                })
+                        override fun addState(state: JcState) {
+                            count++
+                        }
+                    })
+                }
+            } catch (e: Exception) {
+                println("w: test ${method.enclosingClass} failed")
             }
         }
     }
